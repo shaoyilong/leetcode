@@ -54,15 +54,15 @@
 //        printf("%d\n", a[i]);
 //    }
     
-    NSMutableArray *mArr = @[@65,@93,@7,@10,@1,@15,@50,@30,@75,@59,@33,@52,@85,@3,@5].mutableCopy;
+    NSMutableArray *mArr = @[@30,@75,@59,@33,@52,@85,@3,@5,@44,@65,@93,@7,@10,@1,@15,@50].mutableCopy;
 //    NSMutableArray *mArr = @[@5,@93,@7,@10,@1,@15].mutableCopy;
 
-//    [self ocQuickSort:mArr low:0 high:(int)(mArr.count-1)];
-    int k = 7;
-    [self ocRS:mArr low:0 high:(int)(mArr.count-1) k:k];
-    for (int i=0; i<k; i++) {
-        NSLog(@"top%d = %d", i, [mArr[i] intValue]);
-    }
+    [self ocQuickSort:mArr low:0 high:(int)(mArr.count-1)];
+//    int k = 7;
+//    [self ocRS:mArr low:0 high:(int)(mArr.count-1) k:k];
+//    for (int i=0; i<k; i++) {
+//        NSLog(@"top%d = %d", i, [mArr[i] intValue]);
+//    }
     NSLog(@"====%@",mArr);
 
 //    BinNode *tree = [self creatBinTree:@[@1,@8,@6,@2,@5,@4,@8,@3,@7]];
@@ -81,41 +81,7 @@
     
 }
 
-- (void)textDemo2{
-    dispatch_queue_t queue = dispatch_queue_create("cooci", DISPATCH_QUEUE_CONCURRENT);
-    NSLog(@"1");
-    dispatch_async(queue, ^{
-        NSLog(@"2");
-        dispatch_sync(queue, ^{
-            NSLog(@"3");
-        });
-        NSLog(@"4");
-    });
-    NSLog(@"5");
-}
-
-- (void)textDemo1{
-    
-    NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"1",@"2", nil];
-        self.mArray = arr;
-
-    [arr addObject:@"3"];
-    NSLog(@"Cooci: %@",self.mArray);
-    
-//        void (^kcBlock)(void) = ^{
-//            [arr addObject:@"3"];
-//            [self.mArray addObject:@"a"];
-//            NSLog(@"KC %@",arr);
-//            NSLog(@"Cooci: %@",self.mArray);
-//        };
-//        [arr addObject:@"4"];
-//        [self.mArray addObject:@"5"];
-//
-//        arr = nil;
-//        self.mArray = nil;
-//
-//        kcBlock();
-}
+#pragma mark - 二叉树 创建 反转
 
 - (void)printBTree:(BinNode *)root
 {
@@ -262,43 +228,8 @@
     return 0;
 }
 
-- (void)quickSortArray:(NSMutableArray *)array withLeftIndex:(NSInteger)leftIndex andRightIndex:(NSInteger)rightIndex
-{
-    if (leftIndex >= rightIndex) {//如果数组长度为0或1时返回
-        return ;
-    }
-    
-    NSInteger i = leftIndex;
-    NSInteger j = rightIndex;
-    //记录比较基准数
-    NSInteger key = [array[i] integerValue];
-    
-    while (i < j) {
-        /**** 首先从右边j开始查找比基准数小的值 ***/
-        while (i < j && [array[j] integerValue] >= key) {//如果比基准数大，继续查找
-            j--;
-        }
-        //如果比基准数小，则将查找到的小值调换到i的位置
-        array[i] = array[j];
-        
-        /**** 当在右边查找到一个比基准数小的值时，就从i开始往后找比基准数大的值 ***/
-        while (i < j && [array[i] integerValue] <= key) {//如果比基准数小，继续查找
-            i++;
-        }
-        //如果比基准数大，则将查找到的大值调换到j的位置
-        array[j] = array[i];
-        
-    }
-    
-    //将基准数放到正确位置
-    array[i] = @(key);
-    
-    /**** 递归排序 ***/
-    //排序基准数左边的
-    [self quickSortArray:array withLeftIndex:leftIndex andRightIndex:i - 1];
-    //排序基准数右边的
-    [self quickSortArray:array withLeftIndex:i + 1 andRightIndex:rightIndex];
-}
+
+#pragma mark - 滑动窗口 求最大面积
 
 - (int)maxArea:(NSArray *)heightArray
 {
@@ -322,6 +253,8 @@
     return area;
 }
 
+#pragma mark - 二分法 求最大值
+
 - (int)maxNum:(NSArray *)array left:(int)left righ:(int)right
 {
     if (left == right) {
@@ -334,6 +267,8 @@
     
 }
 
+
+#pragma mark - 归并排序
 
 void processSort(int arr[], int l, int r) {
     
@@ -370,6 +305,7 @@ void merge(int arr[], int l, int mid, int r) {
     
 }
 
+#pragma mark - 菲波那切数列
 
 int fbnq(int n) {
     if (n<=1) {
@@ -390,33 +326,7 @@ int fbnq(int n) {
     return b;
 }
 
-int partition(int arr[],  int low, int high) {
-    
-    int i,j;
-    i = low;
-    j = high;
-    int prvot = arr[low];
-    while (i<j) {
-        while (i<j && arr[j] >= prvot) {
-            j--;
-        }
-        if (i<j) {
-            arr[i] = arr[j];
-            i++;
-        }
-        
-        while (i<j && arr[i] <= prvot) {
-            i++;
-        }
-        if (i<j) {
-            arr[j] = arr[i];
-            j--;
-        }
-    }
-    
-    arr[i] = prvot;
-    return i;
-}
+#pragma mark - 快排 C
 
 void quickSort(int arr[],  int low, int high) {
     
@@ -456,24 +366,11 @@ void quickSort(int arr[],  int low, int high) {
 }
 
 
-int RS(int arr[], int low, int high, int k) {
-    if (low == high) {
-        return arr[low];
-    }
-    
-    int i = partition(arr, low, high);
-    
-    int temp = i-low+1;
-    
-    if (temp == k) {
-        return arr[i];
-    } else if (temp > k) {
-        return RS(arr, low, i, k);
-    } else {
-        return RS(arr, i+1, high, k-i);
-    }
-}
 
+
+
+
+#pragma mark - 快排 OC
 
 - (void)ocQuickSort:(NSMutableArray *)arr low:(int)low high:(int)high
 {
@@ -510,13 +407,62 @@ int RS(int arr[], int low, int high, int k) {
 
 }
 
+#pragma mark - TOPK  分治法 C
+
+int partition(int arr[],  int low, int high) {
+    
+    int i,j;
+    i = low;
+    j = high;
+    int prvot = arr[low];
+    while (i<j) {
+        while (i<j && arr[j] >= prvot) {
+            j--;
+        }
+        if (i<j) {
+            arr[i] = arr[j];
+            i++;
+        }
+        
+        while (i<j && arr[i] <= prvot) {
+            i++;
+        }
+        if (i<j) {
+            arr[j] = arr[i];
+            j--;
+        }
+    }
+    
+    arr[i] = prvot;
+    return i;
+}
+
+int RS(int arr[], int low, int high, int k) {
+    if (low == high) {
+        return arr[low];
+    }
+    
+    int i = partition(arr, low, high);
+    
+    int temp = i-low+1;
+    
+    if (temp == k) {
+        return arr[i];
+    } else if (temp > k) {
+        return RS(arr, low, i, k);
+    } else {
+        return RS(arr, i+1, high, k-i);
+    }
+}
+
+#pragma mark - TOPK  分治法  OC
 
 - (int)ocPartition:(NSMutableArray *)arr low:(int)low high:(int)high
 {
     int i,j;
     i = low;
     j = high;
-    int prvot = [arr[low+(high-low)/2] intValue];
+    int prvot = [arr[low] intValue];
     while (i<j) {
         while (i<j && [arr[j] intValue] >= prvot) {
             j--;
@@ -544,16 +490,56 @@ int RS(int arr[], int low, int high, int k) {
     if (low < high) {
         int i = [self ocPartition:arr low:low high:high];
         
-        if (i == k-1) {
+        int temp = i-low+1;
+        
+        if (temp == k) {
             return;
         }
         
-        if (i > k-1) {
+        if (temp > k) {
             return [self ocRS:arr low:low high:i-1 k:k];
         } else {
-            return [self ocRS:arr low:i+1 high:high k:k-i];
+            return [self ocRS:arr low:i+1 high:high k:k-temp];
         }
     }
+}
+
+- (void)quickSortArray:(NSMutableArray *)array withLeftIndex:(NSInteger)leftIndex andRightIndex:(NSInteger)rightIndex
+{
+    if (leftIndex >= rightIndex) {//如果数组长度为0或1时返回
+        return ;
+    }
+    
+    NSInteger i = leftIndex;
+    NSInteger j = rightIndex;
+    //记录比较基准数
+    NSInteger key = [array[i] integerValue];
+    
+    while (i < j) {
+        /**** 首先从右边j开始查找比基准数小的值 ***/
+        while (i < j && [array[j] integerValue] >= key) {//如果比基准数大，继续查找
+            j--;
+        }
+        //如果比基准数小，则将查找到的小值调换到i的位置
+        array[i] = array[j];
+        
+        /**** 当在右边查找到一个比基准数小的值时，就从i开始往后找比基准数大的值 ***/
+        while (i < j && [array[i] integerValue] <= key) {//如果比基准数小，继续查找
+            i++;
+        }
+        //如果比基准数大，则将查找到的大值调换到j的位置
+        array[j] = array[i];
+        
+    }
+    
+    //将基准数放到正确位置
+    array[i] = @(key);
+    
+    /**** 递归排序 ***/
+    //排序基准数左边的
+    [self quickSortArray:array withLeftIndex:leftIndex andRightIndex:i - 1];
+    //排序基准数右边的
+    [self quickSortArray:array withLeftIndex:i + 1 andRightIndex:rightIndex];
 }
 
 @end

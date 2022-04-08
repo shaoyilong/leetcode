@@ -20,6 +20,7 @@
 		1B9C66EF27FFCE3600BA3C6E /* MySort.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C66EE27FFCE3600BA3C6E /* MySort.m */; };
 		1B9C66F227FFCF5500BA3C6E /* MultiThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C66F127FFCF5500BA3C6E /* MultiThread.m */; };
 		1B9C66F527FFCFA900BA3C6E /* BinNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C66F327FFCFA800BA3C6E /* BinNode.m */; };
+		1B9C66F82800141B00BA3C6E /* ListNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C66F72800141B00BA3C6E /* ListNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		1B9C66F127FFCF5500BA3C6E /* MultiThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiThread.m; sourceTree = "<group>"; };
 		1B9C66F327FFCFA800BA3C6E /* BinNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinNode.m; sourceTree = "<group>"; };
 		1B9C66F427FFCFA900BA3C6E /* BinNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinNode.h; sourceTree = "<group>"; };
+		1B9C66F62800141B00BA3C6E /* ListNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListNode.h; sourceTree = "<group>"; };
+		1B9C66F72800141B00BA3C6E /* ListNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 				1B9C66F127FFCF5500BA3C6E /* MultiThread.m */,
 				1B9C66F427FFCFA900BA3C6E /* BinNode.h */,
 				1B9C66F327FFCFA800BA3C6E /* BinNode.m */,
+				1B9C66F62800141B00BA3C6E /* ListNode.h */,
+				1B9C66F72800141B00BA3C6E /* ListNode.m */,
 				1B9C66C027FFCD6D00BA3C6E /* Main.storyboard */,
 				1B9C66C327FFCD6F00BA3C6E /* Assets.xcassets */,
 				1B9C66C527FFCD6F00BA3C6E /* LaunchScreen.storyboard */,
@@ -288,6 +293,7 @@
 				1B9C66F227FFCF5500BA3C6E /* MultiThread.m in Sources */,
 				1B9C66EF27FFCE3600BA3C6E /* MySort.m in Sources */,
 				1B9C66BC27FFCD6D00BA3C6E /* SceneDelegate.m in Sources */,
+				1B9C66F82800141B00BA3C6E /* ListNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
