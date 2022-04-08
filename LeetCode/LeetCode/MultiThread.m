@@ -9,6 +9,8 @@
 
 @interface MultiThread ()
 
+@property (nonatomic, strong) NSMutableArray *mArray;
+
 @end
 
 @implementation MultiThread

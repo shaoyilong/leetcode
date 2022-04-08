@@ -21,6 +21,8 @@
 		1B9C66F227FFCF5500BA3C6E /* MultiThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C66F127FFCF5500BA3C6E /* MultiThread.m */; };
 		1B9C66F527FFCFA900BA3C6E /* BinNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C66F327FFCFA800BA3C6E /* BinNode.m */; };
 		1B9C66F82800141B00BA3C6E /* ListNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C66F72800141B00BA3C6E /* ListNode.m */; };
+		1B9C66FE2800402200BA3C6E /* TreeNodeProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C66FA2800402200BA3C6E /* TreeNodeProperty.m */; };
+		1B9C66FF2800402200BA3C6E /* BinaryTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C66FC2800402200BA3C6E /* BinaryTreeNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,10 @@
 		1B9C66F427FFCFA900BA3C6E /* BinNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinNode.h; sourceTree = "<group>"; };
 		1B9C66F62800141B00BA3C6E /* ListNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListNode.h; sourceTree = "<group>"; };
 		1B9C66F72800141B00BA3C6E /* ListNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListNode.m; sourceTree = "<group>"; };
+		1B9C66FA2800402200BA3C6E /* TreeNodeProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeNodeProperty.m; sourceTree = "<group>"; };
+		1B9C66FB2800402200BA3C6E /* BinaryTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinaryTreeNode.h; sourceTree = "<group>"; };
+		1B9C66FC2800402200BA3C6E /* BinaryTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinaryTreeNode.m; sourceTree = "<group>"; };
+		1B9C66FD2800402200BA3C6E /* TreeNodeProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeNodeProperty.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,10 +132,7 @@
 				1B9C66EE27FFCE3600BA3C6E /* MySort.m */,
 				1B9C66F027FFCF5500BA3C6E /* MultiThread.h */,
 				1B9C66F127FFCF5500BA3C6E /* MultiThread.m */,
-				1B9C66F427FFCFA900BA3C6E /* BinNode.h */,
-				1B9C66F327FFCFA800BA3C6E /* BinNode.m */,
-				1B9C66F62800141B00BA3C6E /* ListNode.h */,
-				1B9C66F72800141B00BA3C6E /* ListNode.m */,
+				1B9C66F92800400800BA3C6E /* BST */,
 				1B9C66C027FFCD6D00BA3C6E /* Main.storyboard */,
 				1B9C66C327FFCD6F00BA3C6E /* Assets.xcassets */,
 				1B9C66C527FFCD6F00BA3C6E /* LaunchScreen.storyboard */,
@@ -154,6 +157,21 @@
 				1B9C66DF27FFCD6F00BA3C6E /* LeetCodeUITestsLaunchTests.m */,
 			);
 			path = LeetCodeUITests;
+			sourceTree = "<group>";
+		};
+		1B9C66F92800400800BA3C6E /* BST */ = {
+			isa = PBXGroup;
+			children = (
+				1B9C66FB2800402200BA3C6E /* BinaryTreeNode.h */,
+				1B9C66FC2800402200BA3C6E /* BinaryTreeNode.m */,
+				1B9C66FD2800402200BA3C6E /* TreeNodeProperty.h */,
+				1B9C66FA2800402200BA3C6E /* TreeNodeProperty.m */,
+				1B9C66F427FFCFA900BA3C6E /* BinNode.h */,
+				1B9C66F327FFCFA800BA3C6E /* BinNode.m */,
+				1B9C66F62800141B00BA3C6E /* ListNode.h */,
+				1B9C66F72800141B00BA3C6E /* ListNode.m */,
+			);
+			path = BST;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,11 +306,13 @@
 			files = (
 				1B9C66F527FFCFA900BA3C6E /* BinNode.m in Sources */,
 				1B9C66BF27FFCD6D00BA3C6E /* ViewController.m in Sources */,
+				1B9C66FE2800402200BA3C6E /* TreeNodeProperty.m in Sources */,
 				1B9C66B927FFCD6D00BA3C6E /* AppDelegate.m in Sources */,
 				1B9C66CA27FFCD6F00BA3C6E /* main.m in Sources */,
 				1B9C66F227FFCF5500BA3C6E /* MultiThread.m in Sources */,
 				1B9C66EF27FFCE3600BA3C6E /* MySort.m in Sources */,
 				1B9C66BC27FFCD6D00BA3C6E /* SceneDelegate.m in Sources */,
+				1B9C66FF2800402200BA3C6E /* BinaryTreeNode.m in Sources */,
 				1B9C66F82800141B00BA3C6E /* ListNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

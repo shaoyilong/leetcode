@@ -41,36 +41,33 @@
 //
 //    int length = sizeof(a)/sizeof(a[0]);
 //
-////    quickSort(a, 0, 10);
+////    int res = RS(a, 0, length-1, 5);
+////    printf("topK value=%d\n", res);
+////
+////
+////
+//    processSort(a, 0, length-1);
 //
-//    int res = RS(a, 0, length-1, 5);
-//    printf("topK value=%d\n", res);
-////
-////
-////
-//////    processSort(a, 0, 5);
-//////
 //    for (int i=0; i<length; i++) {
 //        printf("%d\n", a[i]);
 //    }
-    
-    NSMutableArray *mArr = @[@30,@75,@59,@33,@52,@85,@3,@5,@44,@65,@93,@7,@10,@1,@15,@50].mutableCopy;
-//    NSMutableArray *mArr = @[@5,@93,@7,@10,@1,@15].mutableCopy;
+//
+//    NSMutableArray *mArr = @[@30,@75,@59,@33,@52,@85,@3,@5,@44,@65,@93,@7,@10,@1,@15,@50].mutableCopy;
 
-    [self ocQuickSort:mArr low:0 high:(int)(mArr.count-1)];
+//    [self ocQuickSort:mArr low:0 high:(int)(mArr.count-1)];
 //    int k = 7;
 //    [self ocRS:mArr low:0 high:(int)(mArr.count-1) k:k];
 //    for (int i=0; i<k; i++) {
 //        NSLog(@"top%d = %d", i, [mArr[i] intValue]);
 //    }
-    NSLog(@"====%@",mArr);
+//    NSLog(@"====%@",mArr);
 
 //    BinNode *tree = [self creatBinTree:@[@1,@8,@6,@2,@5,@4,@8,@3,@7]];
 //    NSLog(@"===%@", tree);
 //    BinNode *tree = [self creatBinTree:@[@2,@3,@7,@5,@9,@4,@6,@1,@8]];
 
-//    BinNode *tree = [self creatBinTree:@[@1,@2,@3,@4,@5,@6,@7,@8,@9]];
-//    [self printBTree:tree];
+    BinNode *tree = [self creatBinTree:@[@1,@2,@3,@4,@5,@6,@7,@8,@9]];
+    [self printBTree1:tree];
 //    NSLog(@"#######################");
 //
 //    tree = [self reverseBinTree1:tree];
@@ -89,12 +86,13 @@
         NSLog(@"===end");
         return;
     }
-    NSLog(@"%zd", root.value);
+//    NSLog(@"%zd", root.value);
 
     if (root.leftNode) {
         [self printBTree:root.leftNode];
     }
-//    NSLog(@"%zd", root.value);
+    
+    NSLog(@"%zd", root.value);
 
     if (root.rightNode) {
         [self printBTree:root.rightNode];
@@ -102,6 +100,59 @@
 //    NSLog(@"%zd", root.value);
 
 }
+
+- (void)printBTree1:(BinNode *)root
+{
+    if (!root) {
+        NSLog(@"===end");
+        return;
+    }
+    
+    NSMutableArray *arr = @[].mutableCopy;
+    [arr addObject:root];
+
+    BinNode *p = nil;
+
+    while (arr.count!=0) {
+    
+        p = [arr lastObject];
+        [arr removeLastObject];
+        
+        if (p != nil) {
+            NSLog(@"%zd", p.value);
+            if (p.rightNode) {
+                [arr addObject:p.rightNode];
+            }
+            
+            if (p.leftNode) {
+                [arr addObject:p.leftNode];
+            }
+            
+        }
+    }
+    
+    
+    
+//    while (arr.count!=0 || p != nil) {
+//        while (p != nil) {
+//            [arr addObject:p];
+//            p = p.leftNode;
+//        }
+//
+//        p = [arr lastObject];
+//        [arr removeLastObject];
+//
+//        NSLog(@"%zd", p.value);
+//
+//        if (p.rightNode != nil) {
+//            p = p.rightNode;
+//        } else {
+//            p = nil;
+//        }
+//    }
+    
+}
+
 
 - (BinNode *)reverseBinTree:(BinNode *)root
 {
