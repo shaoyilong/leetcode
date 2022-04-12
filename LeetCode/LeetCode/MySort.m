@@ -7,6 +7,7 @@
 
 #import "MySort.h"
 #import "BinNode.h"
+#import "listNode.h"
 
 @interface MySort ()
 
@@ -76,6 +77,37 @@
     
     
     
+}
+
+#pragma mark - 链表 反转
+
+- (ListNode *)reverseListNode:(ListNode *)head
+{
+    if (head == nil || head.next == nil) {
+        return head;
+    }
+    
+    ListNode *newHead = [self reverseListNode:head.next];
+    head.next.next = head;
+    head = nil;
+    return newHead;
+}
+
+- (ListNode *)reverseListNode2:(ListNode *)head
+{
+    if (head == nil || head.next == nil) {
+        return head;
+    }
+    
+    ListNode *newhead = nil;
+    
+    while (head != nil) {
+        ListNode *tmp = head.next;
+        head.next = newhead;
+        newhead = head;
+        head = tmp;
+    }
+    return newhead;
 }
 
 #pragma mark - 二叉树 创建 反转
